@@ -1,0 +1,43 @@
+name: Release Minified CSS
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install CSS Minifier
+        run: npm install -g clean-css-cli
+
+      - name: Minify CSS files
+        run: |
+          mkdir -p dist
+          shopt -s nullglob
+          for file in src/*.css; do
+            filename=$(basename "$file" .css)
+            cleancss -o "dist/${filename}-minified.css" "$file"
+          done
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.sha }}
+          name: Release ${{ github.sha }}
+          generate_release_notes: true
+          files: dist/*-minified.css

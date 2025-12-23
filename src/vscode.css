@@ -1,0 +1,32 @@
+.window-controls-container {
+    gap: 6px;
+    padding: 0 4px;
+    align-items: center;
+    width: max-content !important;
+}
+
+.window-controls-container > .window-icon {
+    border-radius: 24px;
+    height: 24px !important;
+    width: 24px !important;
+}
+
+.codicon-chrome-minimize:before {
+    content: "\eab4";
+}
+
+.codicon-chrome-maximize:before {
+    content: "\eab7";
+}
+
+.codicon-chrome-restore:before {
+    content: "\eaaa";
+}
+
+.codicon-chrome-close:before {
+    content: "\ea76";
+}
+
+.window-controls-container :before {
+    font-size: 20px;
+}
