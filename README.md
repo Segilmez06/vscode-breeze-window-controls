@@ -35,6 +35,14 @@ sudo chown -R $(whoami) /opt/visual-studio-code
 
 A simple CSS sheet won't justify the time required to spend for a dedicated extension that needs to handle all of those itself. If this repo gets attention, I may consider it.
 
+## Contributing
+
+This style is currently only tested on my system, so any patches that improve universality are greatly appreciated. I am open to PRs!
+
+The sizing of the icons is currently made for the "large titlebar icons" window decoration setting. I am open to ideas for other sizes or even automating this in the code with variables.
+
+If you like this project, please show your support by starring the repo.
+
 ## Credits
 
 Created and maintained by [@Segilmez06](https://github.com/Segilmez06).
